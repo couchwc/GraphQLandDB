@@ -4,4 +4,9 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\GraphApp.Core\GraphApp.Core.csproj" />
+    <ProjectReference Include="..\GraphApp.SharedKernel\GraphApp.SharedKernel.csproj" />
+  </ItemGroup>
+
 </Project>
