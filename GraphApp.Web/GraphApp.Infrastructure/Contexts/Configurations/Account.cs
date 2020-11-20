@@ -11,7 +11,7 @@ namespace GraphApp.Infrastructure.Contexts.Configurations
     /// <summary>
     /// 
     /// </summary>
-    class AccountContextConfiguration : Microsoft.EntityFrameworkCore.IEntityTypeConfiguration<Core.Entities.Account>
+    class Account : Microsoft.EntityFrameworkCore.IEntityTypeConfiguration<Core.Entities.Account>
     {
 
         #region Fields
@@ -37,7 +37,7 @@ namespace GraphApp.Infrastructure.Contexts.Configurations
         /// 
         /// </summary>
         /// <param name="ownerIds"></param>
-        public AccountContextConfiguration(IList<Guid> ownerIds)
+        public Account(IList<Guid> ownerIds)
         {
 
             // Check parameters
@@ -65,7 +65,7 @@ namespace GraphApp.Infrastructure.Contexts.Configurations
         /// 
         /// </summary>
         /// <param name="builder"></param>
-        public void Configure(EntityTypeBuilder<Account> builder)
+        public void Configure(EntityTypeBuilder<Core.Entities.Account> builder)
         {
 
             //
@@ -80,7 +80,7 @@ namespace GraphApp.Infrastructure.Contexts.Configurations
                     var typeOfAccount = GetTypeOfAccount(index);
 
                     //
-                    builder.HasData(new Account()
+                    builder.HasData(new Core.Entities.Account()
                     {
                         Id = Guid.NewGuid(),
                         Description = $"{typeOfAccount.ToString()} account for our users",

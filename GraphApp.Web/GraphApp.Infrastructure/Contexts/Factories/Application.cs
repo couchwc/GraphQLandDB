@@ -1,17 +1,14 @@
-﻿using GraphApp.Core.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace GraphApp.Infrastructure.Repositories
+namespace GraphApp.Infrastructure.Contexts.Factories
 {
-
+    
     /// <summary>
     /// 
     /// </summary>
-    public class OwnerRepository : 
-        BaseCRUDRepository<Core.Entities.Owner, Guid>, 
-        Core.Interfaces.IOwnerRepository
+    public class Application : DbContextFactory<ApplicationContext>
     {
 
         #region Fields
@@ -31,10 +28,9 @@ namespace GraphApp.Infrastructure.Repositories
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="factory"></param>
-        public OwnerRepository(Contexts.Factories.Application factory) 
-            : base(factory)
-        {
+        /// <param name="provider"></param>
+        public Application(IServiceProvider provider) : base(provider)
+        { 
             //
         }
 

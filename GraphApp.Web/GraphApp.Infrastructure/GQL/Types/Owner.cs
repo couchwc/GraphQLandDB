@@ -1,17 +1,14 @@
-﻿using GraphApp.Core.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace GraphApp.Infrastructure.Repositories
+namespace GraphApp.Infrastructure.GQL.Types
 {
 
     /// <summary>
     /// 
     /// </summary>
-    public class OwnerRepository : 
-        BaseCRUDRepository<Core.Entities.Owner, Guid>, 
-        Core.Interfaces.IOwnerRepository
+    public class Owner : GraphQL.Types.ObjectGraphType<Core.Entities.Owner>
     {
 
         #region Fields
@@ -31,11 +28,13 @@ namespace GraphApp.Infrastructure.Repositories
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="factory"></param>
-        public OwnerRepository(Contexts.Factories.Application factory) 
-            : base(factory)
+        public Owner()
         {
-            //
+
+            Field(item => item.Id, type: typeof(GraphQL.Types.IdGraphType)).Description($"{nameof(Core.Entities.Owner.Id)} property from the {nameof(Core.Entities.Owner)} object.");
+            Field(item => item.Name).Description($"{nameof(Core.Entities.Owner.Name)} property from the {nameof(Core.Entities.Owner)} object.");
+            Field(item => item.Address).Description($"{nameof(Core.Entities.Owner.Address)} property from the {nameof(Core.Entities.Owner)} object.");
+
         }
 
         #endregion

@@ -1,17 +1,18 @@
-﻿using GraphApp.Core.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace GraphApp.Infrastructure.Repositories
+namespace GraphApp.Core.Interfaces
 {
 
     /// <summary>
     /// 
     /// </summary>
-    public class OwnerRepository : 
-        BaseCRUDRepository<Core.Entities.Owner, Guid>, 
-        Core.Interfaces.IOwnerRepository
+    public interface ICRUDRepository<T, TId> :
+        ICRURepository<T, TId>
+        where T : Core.Entities.BaseEntity<TId>
     {
 
         #region Fields
@@ -27,17 +28,7 @@ namespace GraphApp.Infrastructure.Repositories
         #endregion
 
         #region Constructors
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="factory"></param>
-        public OwnerRepository(Contexts.Factories.Application factory) 
-            : base(factory)
-        {
-            //
-        }
-
+        //No Constructors
         #endregion
 
         #region Destructors
@@ -49,7 +40,21 @@ namespace GraphApp.Infrastructure.Repositories
         #endregion
 
         #region Methods
-        //No Methods
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        void Delete(T entity);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        Task DeleteAsync(T entity);
+
         #endregion
 
         #region Event Handlers

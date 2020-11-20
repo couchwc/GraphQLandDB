@@ -8,7 +8,8 @@ namespace GraphApp.Core.Interfaces
     /// <summary>
     /// 
     /// </summary>
-    public interface IAccountRepository
+    public interface IAccountRepository : 
+        ICRUDRepository<Entities.Account, Guid>
     {
 
         #region Fields

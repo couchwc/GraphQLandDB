@@ -11,7 +11,7 @@ namespace GraphApp.Infrastructure.Contexts.Configurations
     /// <summary>
     /// 
     /// </summary>
-    class OwnerContextConfiguration : Microsoft.EntityFrameworkCore.IEntityTypeConfiguration<Core.Entities.Owner>
+    class Owner : Microsoft.EntityFrameworkCore.IEntityTypeConfiguration<Core.Entities.Owner>
     {
 
         #region Fields
@@ -37,7 +37,7 @@ namespace GraphApp.Infrastructure.Contexts.Configurations
         /// 
         /// </summary>
         /// <param name="ids"></param>
-        public OwnerContextConfiguration(IList<Guid> ids)
+        public Owner(IList<Guid> ids)
         {
 
             // Check parameters
@@ -65,13 +65,13 @@ namespace GraphApp.Infrastructure.Contexts.Configurations
         /// 
         /// </summary>
         /// <param name="builder"></param>
-        public void Configure(EntityTypeBuilder<Owner> builder)
+        public void Configure(EntityTypeBuilder<Core.Entities.Owner> builder)
         {
 
             for (int index = 0; index < _ids.Count() - 1; index++)
             {
 
-                builder.HasData(new Owner()
+                builder.HasData(new Core.Entities.Owner()
                 {
                     Address = "John Doe's Address",
                     Id = _ids[index],

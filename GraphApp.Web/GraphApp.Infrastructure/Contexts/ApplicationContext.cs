@@ -69,8 +69,8 @@ namespace GraphApp.Infrastructure.Contexts
 
             var ownerIds = new List<Guid> { Guid.NewGuid(), Guid.NewGuid() };
 
-            modelBuilder.ApplyConfiguration(new Configurations.OwnerContextConfiguration(ownerIds));
-            modelBuilder.ApplyConfiguration(new Configurations.AccountContextConfiguration(ownerIds));
+            modelBuilder.ApplyConfiguration(new Configurations.Owner(ownerIds));
+            modelBuilder.ApplyConfiguration(new Configurations.Account(ownerIds));
 
         }
 

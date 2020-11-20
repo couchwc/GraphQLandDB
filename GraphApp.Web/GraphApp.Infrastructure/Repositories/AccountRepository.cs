@@ -1,5 +1,7 @@
-﻿using System;
+﻿using GraphApp.Core.Entities;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace GraphApp.Infrastructure.Repositories
@@ -8,7 +10,9 @@ namespace GraphApp.Infrastructure.Repositories
     /// <summary>
     /// 
     /// </summary>
-    public class AccountRepository : BaseRepository, Core.Interfaces.IAccountRepository
+    public class AccountRepository : 
+        BaseCRUDRepository<Core.Entities.Account, Guid>, 
+        Core.Interfaces.IAccountRepository
     {
 
         #region Fields
@@ -25,9 +29,12 @@ namespace GraphApp.Infrastructure.Repositories
 
         #region Constructors
 
-        //
-        public AccountRepository(Contexts.ApplicationContext context) :
-            base(context)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="factory"></param>
+        public AccountRepository(Contexts.Factories.Application factory)
+            : base(factory)
         {
             //
         }

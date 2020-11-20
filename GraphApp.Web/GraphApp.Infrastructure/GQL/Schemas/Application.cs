@@ -1,17 +1,14 @@
-﻿using GraphApp.Core.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace GraphApp.Infrastructure.Repositories
+namespace GraphApp.Infrastructure.GQL.Schemas
 {
 
     /// <summary>
     /// 
     /// </summary>
-    public class OwnerRepository : 
-        BaseCRUDRepository<Core.Entities.Owner, Guid>, 
-        Core.Interfaces.IOwnerRepository
+    public class Application : GraphQL.Types.Schema
     {
 
         #region Fields
@@ -31,11 +28,11 @@ namespace GraphApp.Infrastructure.Repositories
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="factory"></param>
-        public OwnerRepository(Contexts.Factories.Application factory) 
-            : base(factory)
+        /// <param name="resolver"></param>
+        public Application(IServiceProvider resolver) //IDependencyResolver resolver
+            : base(resolver)
         {
-            //
+            //ToDo
         }
 
         #endregion

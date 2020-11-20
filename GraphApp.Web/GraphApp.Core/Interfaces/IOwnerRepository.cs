@@ -8,7 +8,7 @@ namespace GraphApp.Core.Interfaces
     /// <summary>
     /// 
     /// </summary>
-    public interface IOwnerRepository
+    public interface IOwnerRepository : ICRUDRepository<Entities.Owner, Guid>
     {
 
         #region Fields
